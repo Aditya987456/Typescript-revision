@@ -1,0 +1,25 @@
+{
+  "name": "typescript-revision",
+  "version": "1.0.0",
+  "description": "Revising Typescript from chaiaurcode yt channel playlist.",
+  "main": "index.js",
+  "scripts": {
+     "start": "node dist/index.js",
+     "dev": "npx tsc"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Aditya987456/Typescript-revision.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/Aditya987456/Typescript-revision/issues"
+  },
+  "homepage": "https://github.com/Aditya987456/Typescript-revision#readme",
+  "devDependencies": {
+    "typescript": "^5.9.3"
+  }
+}

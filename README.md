@@ -80,5 +80,99 @@ Emitter → outputs JavaScript ( .js, .d.ts, .map )
 
 
 
+<br>
+<br>
+<br>
+<br>
+<br>
+
+## #3: TypeScript installation...
+> installation globally (-g)  or project wise as well - our choice...
+
+
+
+<br>
+<br>
+<br>
+<br>
+<br>
+
+
+
+## #4: type annotation and inferencing in TS.
+
+> Annotation in TS
+
+Telling TypeScript what type a variable, parameter, or return value should be...
+
+
+```
+let age:number = 21;
+let username:string = "sarkar";
+
+function greet(name:string): string{
+   return `Hello ${name}`;
+}
+```
+
+<br>
+<br>
+
+> Inferencing in TS
+
+TypeScript automatically infers types based on assigned values.
+
+```
+let age = 10  //automatically inferred as number.
+let name = 'hola'   //automatically inferred as string.
+
+let age='21'   // ERROR...
+
+```
+
+
+
+<br>
+<br>
+<br>
+<br>
+<br>
+
+
+## #5: Unions and any
+
+> Unions - Variables to have multiple types.
+
+```
+let userId : string | number;
+
+userId = 45;
+userId = 'abc67';
+```
+
+> any - disable the type checks for variable.
+ ```
+ let respose : any;
+
+ response = 'abc';
+ response = 123;
+ response = false;
+ ```
+
+
+<br>
+<br>
+<br>
+<br>
+<br>
+
+
+## #6: 
+
+
+
+
+
+
 
 
