@@ -170,8 +170,6 @@ userId = 'abc67';
 ## #6: Type Narrowing and Type Guards.
 > broader type --> more specific type.
 
-> unknown type.
-
 <br>
 <br>
 
@@ -239,6 +237,161 @@ function getName( username: User  | Admin){
 <br>
 <br>
 <br>
+
+
+
+> 3. in
+
+> 4. as
+
+> 5. custom type
+
+> 6. unknown , any
+
+<br>
+<br>
+<br>
+
+> examples of some of the type narrowing--
+
+```
+class Cat{
+   meow(){
+      console.log(`mewo mewo!`)
+   }
+}
+
+class Dog{
+   bark(){
+      console.log(`barking!`)
+   }
+}
+
+function AnimalSound(animal: Cat | Dog){
+   if(animal instanceof Dog){
+      animal.bark()
+   }else{
+      animal.meow()
+   }
+}
+```
+
+
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+
+## #7: Type assertion , type unknown , type never.
+
+> type Assertion ---   "as"
+
+- in TS conversion like things not like -- Number("12")
+- assertion not means safety...
+
+
+
+<br>
+<br>
+
+```
+let value: unknown = "adiii";
+
+let str = value as string;
+console.log(str.toUpperCase());    //here works becz we doing on str.
+
+```
+
+<br>
+<br>
+<br>
+
+
+
+eg- many type guards ...
+```
+type User = { name: string };
+
+function parseUser(data: unknown): User {
+  if (
+   //before using unknown type 'data' we have to mention type
+    typeof data === "object" &&
+    data !== null &&
+    "name" in data
+  ) {
+    return data as User;
+  }
+  throw new Error("Invalid user");
+}
+
+```
+
+
+
+
+
+> unknown - before using we have to define the type or take responsibility of type then do things--
+
+```
+let data:unknown;
+data = "hello saaar"
+data = 2.96
+data = [4,5,6]
+
+//now before using we have to define or take responsibility of type --
+if(typeof data === "number"){
+    data.toString();
+}
+```
+
+
+<br>
+<br>
+<br>
+<br>
+
+### Never in TS - something that can never happen
+- void means "returns nothing useful" (the function completes normally)
+- never means "never returns at all" (execution stops)
+
+<br>
+<br>
+
+
+```
+type A = string & number; // never type
+```
+
+
+```
+//eg- never means let say a function that always crash
+function crash(): never {
+  throw new Error("Boom");
+}
+
+```
+
+
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+
+
+## #8:Types and Interface in TS
+
+
 
 
 

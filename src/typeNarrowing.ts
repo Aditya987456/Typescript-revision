@@ -145,6 +145,31 @@ function parseData(data: unknown) {
 
 
 
+//another example for instanceof---
+class Cat{
+   meow(){
+      console.log(`mewo mewo!`)
+   }
+}
+
+class Dog{
+   bark(){
+      console.log(`barking!`)
+   }
+}
+
+function AnimalSound(animal: Cat | Dog){
+   if(animal instanceof Dog){
+      animal.bark()
+   }else{
+      animal.meow()
+   }
+}
+
+
+
+
+
 
 
 
