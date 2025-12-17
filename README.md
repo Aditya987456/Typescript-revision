@@ -167,7 +167,81 @@ userId = 'abc67';
 <br>
 
 
-## #6: 
+## #6: Type Narrowing and Type Guards.
+> broader type --> more specific type.
+
+> unknown type.
+
+<br>
+<br>
+
+Type narrowing is the process of refining a broader type into a more specific type within a conditional block. 
+Type guards are the mechanisms that enable this narrowing.
+
+for example - 
+
+```
+function getChai(kind:string | number){
+   //here TS confuse which type is the kind. is ... how to give suggestions?
+   return `making chai order ${kind}...`
+}
+```
+
+Therefore need to use type narrowing using type guards...
+
+
+
+<br>
+<br>
+<br>
+
+
+
+
+> 1." typeof "  Type Guard
+```
+function getChai(kind:string | number) {
+    if(typeof kind === "string"){
+        return `Making ${kind} chai...`
+    }
+
+    return `Chai order: ${kind} `
+}
+```
+
+<br>
+<br>
+<br>
+
+
+
+> 2." instanceof "  type guard
+
+```
+class User {
+    name = "Adii"
+}
+
+class Admin {
+    name = "Aditya"
+}
+
+function getName( username: User  | Admin){
+    if(username instanceof User){
+        return username.name;
+    }
+}
+
+// by checking instanceof username we are now 100% sure that name in username is from which class.
+
+```
+
+<br>
+<br>
+<br>
+
+
+
 
 
 
