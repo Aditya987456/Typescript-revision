@@ -391,7 +391,99 @@ function crash(): never {
 
 ## #8:Types and Interface in TS
 
+> type - use type for unions, primitives, function signatures, and advanced type compositions.
 
+```
+type carModel = "maruti" | "volkswagon" | "toyota"
+
+
+type User = {
+   name:string;
+   id:number;
+}
+
+//func type-
+type Addition = (a:number , b:number)=>number
+
+
+```
+
+
+<br>
+<br>
+<br>
+
+
+> interface - mainly Use interface for object shapes and when working with classes.
+
+```
+ interface Car {
+   type: "sedan" | "xuv" | "nahi pata"
+   company:string
+   model:string
+   price:number
+}
+
+//interface can also extend from interface---
+interface IndianCar extends Car {
+   allowedLocation: "city" | "villages"
+}
+
+
+class OrderCar implements Car {
+   type: "sedan" | "xuv" | "nahi pata" = "nahi pata"
+   company: string = "Toyota"
+   model: string = "fortuner"
+   price: number = 150
+}
+
+```
+
+
+<br>
+<br>
+<br>
+
+> optional type -  may or may not exist...
+
+```
+ type Employee = {
+    name:string
+    id:number
+    salary?:string
+ }
+```
+
+<br>
+<br>
+
+
+> readonly - only one type allow to assign value.
+
+```
+type User = {
+  readonly id: number;
+  name: string;
+};
+
+const user: User = { id: 1, name: "Aditya" };
+user.name = "Raj";   
+user.id = 2;      // now its not allowed --> error.
+
+```
+
+
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+## #9:
 
 
 
