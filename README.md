@@ -483,11 +483,108 @@ user.id = 2;      // now its not allowed --> error.
 <br>
 <br>
 
-## #9:
+## #9: Object in TS.
+
+> structural typing - different type name same structure.
+
+```
+type User = {
+  name: string;
+  age: number;
+};
+
+type Person = {
+  name: string;
+  age: number;
+};
+
+const p: Person = {
+  name: "Aditya",
+  age: 21,
+};
+
+const u: User = p; 
+
+```
+
+<br>
+<br>
+
+> Duck typing - object has the required shape, TypeScript accepts it. (even different structure)
+
+```
+type car = { model:string}
+
+let myCar:car = { model: "alto800"}
+
+let yourCar = {
+    model:"wagnar",
+    company:"maruti",
+    price:199
+}
+myCar = yourCar   //works no issue here.
+```
+
+<br>
+<br>
+
+> Partial<T> — Make Everything Optional.
+
+```
+type Car = {
+    company:string;
+    model:string;
+    price:number;
+}
+
+const car1 = (items: Partial<Car>) =>{
+    console.log('hello feom car1 with ', items)
+}
+
+car1( {company:"toyota"} )
+car1( {model:"fortuner"} )
+car1( {} ) //works becz it made all data types optional
+```
+
+
+<br>
+<br>
+
+> Required<T> — Make Everything Mandatory
+
+```
+type Vehicle = {
+    name?:string;
+    price?:number
+}
+
+const Vehicle1 = (info: Required<Vehicle>) =>{
+    console.log(`info of vehicle -- ${info}`)
+}
+
+Vehicle1({name:"xuv700", price:456}) // we have to give all here even though we have made data type as optional
+```
 
 
 
+<br>
+<br>
 
+> Pick<T, K> — Select Few Properties 
+
+> Omit<T, K> — Remove Some Properties (Very Common)
+
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+## #10: 
 
 
 
