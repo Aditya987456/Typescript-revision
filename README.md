@@ -584,7 +584,160 @@ Vehicle1({name:"xuv700", price:456}) // we have to give all here even though we 
 <br>
 <br>
 
-## #10: 
+## #10: Functions in TS.
+
+<br>
+<br>
+
+> Basic funtion with types..
+
+```
+function SayName(name:string){
+   console.log(`My name is ${name}`)
+}
+
+SayName("aadi")
+
+
+
+
+//one more example -
+function CombineString(name1:string, name2:string):string
+{
+    return (name1+name2);
+}
+
+const result2 = CombineString("hello", "saaar")
+console.log(result2)
+```
+
+<br>
+<br>
+
+
+> Optional parameter - should be written after the required params
+
+```
+function Car(model:string, price?:number){
+    if(price){
+        console.log(`We have the model of the car is ${model} and its price is ${price}`)
+    }
+
+    console.log(`the model of the car is ${model}`)
+}
+```
+
+<br>
+<br>
+
+> Default params
+
+```
+function Car(model:string, company:string = "Toyota"){
+   console.log(`Company of the car is ${company} and its model is ${model}`)
+}
+```
+
+<br>
+<br>
+
+> Union type function params - 
+
+```
+function printId(id: string | number) {
+  return `#ID: ${id}`;
+}
+
+```
+
+
+<br>
+<br>
+
+> Void return type -
+```
+function SayMyName(name:string):void {
+   console.log(`Hiii ${name}`)
+}
+```
+
+<br>
+<br>
+
+> function type -function never finishes , function never returns a value
+
+```
+function fail(): never {
+  throw new Error("Failed");
+}
+
+```
+
+
+<br>
+<br>
+
+
+> Function Overloading - multiple type signatures, single implementation...
+
+```
+function print( name:string): string
+function print (id: number): string
+
+function print(value: any) {
+  return value.toString();
+}
+
+print("aadii_tw")
+print(3)
+
+```
+
+<br>
+<br>
+
+> Rest params- 
+> when number of arguments is unknown , rest parameter should be in last...also arguments are grouped into an array
+
+```
+
+```
+
+
+
+
+
+
+
+<br>
+<br>
+
+
+
+
+
+> Async Function - 
+> async function always returns a Promise, 
+return value is wrapped in Promise<T>
+
+```
+async function getUser(): Promise<string> {
+  return "Aditya";
+}
+
+
+
+
+const fetchData = async (): Promise<number> => {
+  return 10;
+};
+
+```
+
+
+
+
+
 
 
 
