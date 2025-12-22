@@ -736,6 +736,152 @@ const fetchData = async (): Promise<number> => {
 
 
 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+## #11: Arrays, tuples, enums in TS.
+
+<br>
+<br>
+
+> <b>Arrays - </b>
+
+```
+const array: string[] = ["hello", "saaar"]
+let Price: Array<number> = [199, 299, 399];
+
+let mixed : (string | boolean)[] = ["true", true, "hello"]
+```
+
+<br>
+
+> <b> 2D - Arrays - </b>
+
+```
+let matrix: number[][] = [
+  [1, 2],
+  [3, 4],
+];
+
+```
+<br>
+<br>
+<br>
+<br>
+<br>
+
+> <b>Tuples - </b>Tuples are fixed-length arrays with fixed types at specific positions.
+
+<br>
+
+```
+let CarTuple: [ string, number]
+CarTuple = [ "fortuner", 123] 
+```
+- changing position of datatype is not allowed like -
+ ```CarTuple = [64644 , "dhfh"] ```
+
+ - Since tuples is still an array so it allows things like - ```CarTuple.push(123)```
+
+<br>
+
+ > Readdonly tuples - best practice to use 
+ ```
+ const location : readonly [number, number] = [20.45, 45.78]
+ ```
+
+<br>
+<br>
+
+> Named Tuples -  most preference to use like this...
+```
+const CarItems : [name: string, price:number] = [ "Swift", 1234]
+```
+
+
+<br>
+<br>
+<br>
+<br>
+
+> <b>Enums - Enums are used to define a set of named constants. </b>
+
+*  standard practice to use in CAPS not madatory.
+
+<br>
+
+```
+enum CupSize {
+  SMALL,
+  MEDIUM,
+  LARGE,
+}
+
+const size = CupSize.LARGE; //here the value will be 2 becz val auto increment from 0.
+
+
+
+//also if we define one value then all value auto increment- like 
+ enum Status {
+  PENDING = 100,
+  SERVED,     // 101
+  CANCELLED,  // 102
+}
+
+// also using const --> may becz performance optimized by removing at compile time.
+const enum SugarLevel {
+  LOW = 1,
+  MEDIUM = 2,
+  HIGH = 3,
+}
+
+let sugar = SugarLevel.LOW;
+
+
+```
+
+
+
+<br>
+<br>
+
+> Api examples -
+
+```
+enum OrderStatus {
+  PENDING = "pending",
+  COMPLETED = "completed",
+}
+
+type Order = readonly [id: number, status: OrderStatus];
+
+const order1: Order = [101, OrderStatus.PENDING];
+
+```
+
+
+
+
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+## #12: OOPs in TS.
+
+<br>
+<br>
 
 
 
