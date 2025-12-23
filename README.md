@@ -883,6 +883,256 @@ const order1: Order = [101, OrderStatus.PENDING];
 <br>
 <br>
 
+> <b>this keyword</b>  - same as JS it refers to the same object instance 
+
+```
+class Wallet {
+  balance = 100;
+
+  getBalance() {
+    return this.balance;    //this.balace means balance of the object that call the method.
+  }
+}
+```
+
+<br>
+<br>
+
+> <b>Access Modifiers</b> - like public, private, protected...
+
+```
+class InfoStudent{
+
+    public name:string = "aadii_tw"
+
+    //when we use private then we also used a method so we can access this private val
+    private DOB:number = 140245
+    #myPassword:string = "patanahi"
+
+    getPassword(){
+      console.log(`Hii my Password is - ${this.#myPassword}`)
+    }
+
+    reveal(){
+        console.log(`My birth date is ${this.DOB}`)
+    }
+
+
+    //protected -- access within class or to those class who inherit from it.
+    protected RollNo : number = 2201100100009
+
+}
+
+const Student = new InfoStudent()
+Student.reveal()   //to access private....
+
+
+class college extends InfoStudent{
+    getStudentRollNo(){
+        console.log(`Roll no of the student : ${this.RollNo}`)
+    }
+}
+
+```
+
+<br>
+<br>
+
+> <b>Readonly properties - </b> 
+
+```
+class Cup{
+    readonly capacity: number = 250
+
+    constructor(capacity:number){
+        this.capacity = capacity
+    }
+}
+const c = new Cup(250);  //this will give error...
+```
+
+<br>
+<br>
+
+> <b>Controlled Gates- </b> getter , setter and here ---  <b>get,set</b> is prefix  
+
+
+```
+NOTE --
+If you set values directly in the constructor (like this._name = name), the setter is skipped.
+
+If you set values using the property (like this.name = name), the setter runs and does its checks.
+```
+
+
+
+```
+class Wallets {
+  private balance = 100;
+
+  getBalance() {
+    return this.balance;
+  }
+
+  setBalance(amount: number) {
+    if (amount < 100) throw new Error("Invalid amount");
+    this.balance = amount;
+  }
+}
+
+const myWallet = new Wallets()
+
+//initially balance is 100 
+console.log(`Initial balance is - ${myWallet.getBalance()}`) 
+
+//after setting if less than 100
+console.log(myWallet.setBalance(99))    //it will gives error.
+
+```
+
+
+<br>
+<br>
+
+> <b>Static member - </b> Static members are like “class-level” variables or functions. They live on the class itself, not on each object we create.
+
+```
+class MathUtils {
+  // static property
+  static PI: number = 3.14159;
+
+  // static method
+  static circleArea(radius: number): number {
+    return this.PI * radius * radius;
+  }
+}
+
+// --- access without creating an object
+console.log(MathUtils.PI); // 3.14159
+console.log(MathUtils.circleArea(10)); // 314.159
+
+```
+
+
+<br>
+<br>
+
+> <b>Abstract class - </b>  
+when we not want that object is created from this class <br>
+Cannot create object of abstract class <br>
+****Child must implement abstract methods
+
+```
+abstract class Drinking {
+    abstract make():void
+}
+
+//now we use this class like in another as ---
+class ItsMyChai extends Drinking {
+    make(): void {
+        console.log('making chai...')
+    }
+}
+```
+
+
+
+<br>
+<br>
+
+> <b>Inheritence - </b> same as JS
+
+```
+class Animal {
+  move() { console.log("Animal moves"); }
+}
+
+class Dog extends Animal {
+  bark() { console.log("Dog barks"); }
+}
+
+const d = new Dog();
+d.move(); // inherited
+d.bark(); // own method
+
+```
+
+<br>
+<br>
+
+> <b>Composition - </b> better than inheritence ???...
+
+```
+class Engine {
+  start() { console.log("Engine started"); }
+}
+
+class Car {
+ // private engine: Engine;
+
+  constructor(private engine: Engine) {
+    this.engine = new Engine(); 
+  }
+
+  drive() {
+    this.engine.start();  //it has all the method that the Engine has
+    console.log("Car is driving");
+  }
+}
+
+const car = new Car();
+car.drive();
+
+
+```
+
+
+
+
+
+
+
+
+<br>
+<br>
+
+> <b>Polymorphism - </b> Same interface, different behavior.
+
+```
+
+class Bird {
+  speak(): void {
+    console.log("Generic bird sound");
+  }
+}
+
+class Parrot extends Bird {
+  speak(): void {
+    console.log("Hello! I can talk!");
+  }
+}
+
+class Crow extends Bird {
+  speak(): void {
+    console.log("Caw! Caw!");
+  }
+}
+
+const chidiya1 = new Parrot()
+chidiya1.speak()
+
+const chidiya2 = new Crow()
+chidiya2.speak()
+
+```
+
+
+
+
+
+
+
+
 
 
 
