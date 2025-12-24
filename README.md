@@ -1127,6 +1127,70 @@ chidiya2.speak()
 ```
 
 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+## #13: Interface and Generics in TS.
+
+<br>
+<br>
+
+> <b>Interface more examples- shape of an object + methods </b>  
+
+```
+//class implements ---
+
+interface AuthServices {
+
+    //login method
+    login (email:string, password:number) :boolean;
+
+    //logout method.
+    logout():void
+}
+
+class auth implements AuthServices{
+
+     login(email: string, password: number) {
+        return email === "adityarajxdev@gmail.com"
+     }
+
+     logout() {
+         console.log(`You are logged out saaaaar.`)
+     }
+}
+
+
+
+
+
+
+//-----index signature------
+Object can have any number of keys, but:
+
+key → string
+
+value → number
+
+
+
+```
+
+
+
+<br>
+<br>
+
+> <b>Generics - </b>  
+
+
+
 
 
 
