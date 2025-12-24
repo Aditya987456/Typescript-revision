@@ -1144,7 +1144,7 @@ chidiya2.speak()
 > <b>Interface more examples- shape of an object + methods </b>  
 
 ```
-//class implements ---
+//--------------class implements -------------
 
 interface AuthServices {
 
@@ -1180,6 +1180,18 @@ value → number
 
 
 
+
+//-----------multiple interface extending...
+interface A { a: string}
+interface B { b: string}
+
+interface C extends A,B {}
+
+const obj : C = {
+    a:"hello",
+    b:"saaaaar"
+}
+
 ```
 
 
@@ -1187,7 +1199,171 @@ value → number
 <br>
 <br>
 
-> <b>Generics - </b>  
+> <b>Generics -</b>  type is decided at usage time, not while writing function
+
+<b>Need of generics - </b> 
+
+- Avoid Duplication → Instead of writing separate functions/components for each type, one generic handles all.
+
+- API Responses → Define reusable response types that adapt to different payloads while keeping type safety.
+
+- Forms in React → Build form components that work with different data models (user, product, etc.) without rewriting.
+
+- Reusable UI Components → Dropdowns, tables, inputs, etc. can be generic so they adapt to any data type.
+
+
+<br>
+<br>
+
+
+```
+
+//-------------------example of duplication --------------------- 
+
+function getElementString(ele:string):string{
+    return ele;
+}
+
+function getElementNumber(ele:number):number{
+    return ele;
+}
+function getElementBoolean(ele:boolean):boolean{
+    return ele;
+}
+console.log(`${getElementBoolean(true)}`)
+console.log(`${getElementString("hellloo")}`)
+console.log(`${getElementNumber(45)}`)
+
+
+
+//instead of this we can do like ----
+function getElement<T>(item:T):T{
+    return item;
+}
+console.log(`${getElement(45)}`)
+console.log(`${getElement("saaaaaar")}`)
+console.log(`${getElement(true)}`)
+
+```
+
+
+```
+//---------API response ------
+
+interface ApiPromise<T> {
+  data: T
+  status: number
+  message: string
+}
+
+interface UserData {
+  id: number
+  name: string
+}
+
+const res: ApiPromise<UserData> = {
+  data: { id: 1, name: "Aditya" },
+  status: 200,
+  message: "Success"
+}
+
+
+```
+
+
+
+```
+//-------also generics with partial, pick, omit also works....
+
+interface User {
+  id: number
+  name: string
+  email: string
+}
+
+type UpdateUser = Partial<User>
+type UserPreview = Pick<User, "id" | "name">
+type UserWithoutEmail = Omit<User, "email">
+
+```
+
+<br>
+<br>
+
+
+**GPT -- examples**
+```
+---------react form -----------
+
+type FormProps<T> = {
+  values: T;
+  onChange: (field: keyof T, value: T[keyof T]) => void;
+};
+
+function Form<T>({ values, onChange }: FormProps<T>) {
+  return (
+    <div>
+      {Object.keys(values).map((key) => (
+        <input
+          key={key}
+          value={String(values[key as keyof T])}
+          onChange={(e) => onChange(key as keyof T, e.target.value as any)}
+        />
+      ))}
+    </div>
+  );
+}
+
+// Usage:
+<Form
+  values={{ name: "Aditya", age: 25 }}
+  onChange={(field, value) => console.log(field, value)}
+/>
+
+
+
+------- ui component ------------
+
+type Option<T> = {
+  label: string;
+  value: T;
+};
+
+function Dropdown<T>({ options }: { options: Option<T>[] }) {
+  return (
+    <select>
+      {options.map((opt, i) => (
+        <option key={i} value={String(opt.value)}>
+          {opt.label}
+        </option>
+      ))}
+    </select>
+  );
+}
+
+// Usage:
+<Dropdown options={[{ label: "One", value: 1 }, { label: "Two", value: 2 }]} />;
+<Dropdown options={[{ label: "Yes", value: true }, { label: "No", value: false }]} />;
+
+```
+
+
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+## #14: Axios in TS.
+
+<br>
+<br>
+
+> <b> -</b>  
 
 
 

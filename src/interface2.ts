@@ -25,21 +25,16 @@ class auth implements AuthServices{
 
 
 
-
-
-
-
-
-
-
-
-
-//index signature
+//index signature  -- same type of each keys of the object.
 interface DeliverReview{
-    [bahaviour:string]: number
+    [reviewParameter:string]: number
 }
 
-
+const OrderReview:DeliverReview = {
+    time:5,
+    packaging:4,
+    quality:5
+}
 
 
 
@@ -54,21 +49,27 @@ interface User{
     age: number
 }
 
-
-
 //its like interface gets merged....
-
 const u:User = {
     name: "aadii_tw",
     age : 22
 }
 
+
+
+
+
+
+//multiple interface extending...
 interface A { a: string}
 interface B { b: string}
 
 interface C extends A,B {}
 
-const 
+const obj : C = {
+    a:"hello",
+    b:"saaaaar"
+}
 
 
 
