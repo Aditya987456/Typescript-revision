@@ -1358,80 +1358,12 @@ function Dropdown<T>({ options }: { options: Option<T>[] }) {
 <br>
 <br>
 
-## #14: Type declaration in web request in TS.
+## #14: Axios in TS.
 
 <br>
 <br>
 
-> <b>How to get tpes of any library ?</b>  
-
-- Since mostly libraries has type declared when we do like - 
-  ```  
-  npm i axios 
-  ```
-
-- but let say if types not available in that then we do like -
-this is the standard way for the types of any lib. 
-  ``` 
-  npm i -D @types/axios
-  ```
-  
-
-
-- Even after doing all this we are not able to find the types then we create that by using the docs of that library in .d.ts file.
-
-
-
-
-<br>
-<br>
-
-> <b> Web request - </b>
-
-
-```
-
-import axios from "axios"
-import type { AxiosResponse } from "axios"
-
-
-
-//this is the todo that will going to fetch
-// userId	1
-// id	1
-// title	"delectus aut autem"
-// completed	false
-
-interface Todos {
-    userId:number,
-    id:number, 
-    title:string,
-    completed:boolean
-}
-
-
-//this function will return todos as promise here....wkt
-async function fetchTodo(todoNum: number): Promise<Todos> {
-  try {
-    const res : AxiosResponse<Todos> = await axios.get(
-      `https://jsonplaceholder.typicode.com/todos/${todoNum}`
-    )
-    return res.data
-
-  } catch (error:any) {
-        if(axios.isAxiosError(error)){
-            throw error.message
-        }
-
-        throw error;
-  }
-}
-
-
-const todoData = await fetchTodo(5)
-console.log(`hey there! Your todo data is -- `,todoData)
-
-```
+> <b> -</b>  
 
 
 

@@ -4,8 +4,8 @@
   "description": "Revising Typescript from chaiaurcode yt channel playlist.",
   "main": "index.js",
   "scripts": {
-    "start": "node dist/index.js",
-    "dev": "npx tsc"
+     "start": "node dist/index.js",
+     "dev": "npx tsc"
   },
   "repository": {
     "type": "git",
@@ -14,15 +14,12 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "type": "module",
+  "type": "commonjs",
   "bugs": {
     "url": "https://github.com/Aditya987456/Typescript-revision/issues"
   },
   "homepage": "https://github.com/Aditya987456/Typescript-revision#readme",
   "devDependencies": {
     "typescript": "^5.9.3"
-  },
-  "dependencies": {
-    "axios": "^1.13.2"
   }
 }
