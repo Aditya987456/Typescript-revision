@@ -1438,6 +1438,120 @@ console.log(`hey there! Your todo data is -- `,todoData)
 
 
 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+## #15:  TypeScript + React. 
+gpt explanion also in this ---
+<br>
+<br>
+
+> <b> Custom Hook (useFetch<T>)  </b>
+
+useFetch<T> is a hook to fetch data from an API.
+
+<T> means generic type → you tell the hook what kind of data you expect.
+
+Example:
+also we will define already todo - 
+
+```
+Type Todo = {
+  id:..
+  userId .. like that.
+}
+const { data, loading, error } = useFetch<Todo>("https://jsonplaceholder.typicode.com/todos/1")
+// Here data will look like a Todo object.
+```
+
+> <b> Fetch State  </b>
+We use an object to track fetch status:
+
+```
+interface FetchState<T> {
+  data: T | null
+  loading: boolean
+  error: string | null
+}
+```
+
+data → the actual API response
+
+loading → true when fetching, false when done
+
+error → message if something goes wrong
+
+> <b> Props in Components </b>
+Props are inputs to components.
+
+```
+interface SubmitFormProps {
+  onSubmit(order: { name: string; cups: number }): void
+}
+```
+onSubmit is a function passed from parent.
+
+It receives an object { name, cups }.
+
+> <b> State with Type </b>
+```
+const [name, setName] = useState<string>("Masala Chai")
+const [cups, setCups] = useState<number>(0)
+useState<string> → state must be a string.
+useState<number> → state must be a number.
+```
+> <b> Events in React </b>
+
+Form submit:
+```
+function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+  e.preventDefault()
+}
+```
+Input change:
+```
+onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+  setName(e.target.value)
+}
+React.FormEvent<HTMLFormElement> → event type for forms.
+
+React.ChangeEvent<HTMLInputElement> → event type for inputs.
+```
+> <b> Numeric Input </b>
+Inputs return strings → convert to number:
+
+```
+setCups(Number(e.target.value))
+```
+
+```
+//Axios + TypeScript
+axios.get<Todo>(url) // typed
+axios.get(url)       //  untyped
+```
+
+> Points
+
+- Generics (<T>) → reusable hooks for any data type.
+
+- Union types (T | null) → handle async data safely.
+
+- Props & state typing → prevent misuse.
+
+- Event typing → ensures correct .value usage.
+
+
+
+
+
+
+
 
 
 
